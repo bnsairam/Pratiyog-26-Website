@@ -1,95 +1,33 @@
-import type { Config } from "tailwindcss";
-
-export default {
-  darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
-  prefix: "",
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+theme: {
+  extend: {
+    colors: {
+      'pratiyog-black': '#020104',
+      'pratiyog-deep': '#0F051E',
+      'pratiyog-purple': '#5E0FD6',
+      'pratiyog-mpurple': '#8A3CFF',
+      'pratiyog-lpurple': '#B388FF',
+      'pratiyog-gold': '#FFCA28',
+      'pratiyog-lgold': '#FFE082',
+      'pratiyog-dgold': '#FFB300',
+      'pratiyog-cream': '#FFF8E1',
     },
-    extend: {
-      fontFamily: {
-        display: ['"Cinzel Decorative"', 'Cinzel', 'serif'],
-        cinzel: ['Cinzel', 'serif'],
-        body: ['Rajdhani', 'sans-serif'],
-        elegant: ['"Cormorant Garamond"', 'serif'],
+    backgroundImage: {
+      'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      'hero-glow': 'radial-gradient(ellipse at center, rgba(94,15,214,0.7) 0%, transparent 70%)',
+    },
+    animation: {
+      'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+      'shimmer': 'shimmer 4s linear infinite',
+    },
+    keyframes: {
+      glowPulse: {
+        '0%, 100%': { boxShadow: '0 0 20px rgba(255,202,40,0.3)' },
+        '50%': { boxShadow: '0 0 60px rgba(179,136,255,0.7), 0 0 100px rgba(255,202,40,0.4)' },
       },
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        stranger: {
-          red: "hsl(var(--stranger-red))",
-          crimson: "hsl(var(--stranger-crimson))",
-          ember: "hsl(var(--stranger-ember))",
-          dark: "hsl(var(--stranger-dark))",
-        },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+      shimmer: {
+        '0%': { backgroundPosition: '0% 50%' },
+        '100%': { backgroundPosition: '200% 50%' },
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+},
